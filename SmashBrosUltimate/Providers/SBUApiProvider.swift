@@ -29,6 +29,7 @@ class SBUApiProvider : SBUBaseProvider {
 extension SBUApiProvider: SBUApiProviderProtocol {
   func fetchUniverses() async -> Result<[SBUUniverseModel], SBUError> {
     let route = "\(baseURL)/universes"
+    
     let result: Result<[SBUUniverseModel], SBUError>
     
     guard let response = try? await request([SBUUniverseModel].self, route: route) else {
