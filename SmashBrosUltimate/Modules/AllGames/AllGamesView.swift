@@ -8,21 +8,6 @@
 import SwiftUI
 import RealmSwift
 
-struct UniverseFilterSelector: View {
-  var data: [SBUUniverseModel]
-  private let rowsGrid = [GridItem(.flexible())]
-  
-  var body: some View{
-    ScrollView(.horizontal) {
-      LazyHGrid(rows: rowsGrid, spacing: 20) {
-        ForEach(data, id: \.self) { item in
-          Text(item.name ?? "")
-        }
-      }
-    }
-  }
-}
-
 struct AllGamesView: View {
   @StateObject private var viewModel: AllGamesViewModel
   
@@ -34,16 +19,20 @@ struct AllGamesView: View {
     NavigationView {
       ScrollView {
         switch viewModel.state {
-        case .success(let universes, let fighters):
+        case .success:
           HStack {
-            Text("Figthers (\(fighters.count))")
+            Text("Figthers (\(viewModel.fighters.count))")
               .font(.system(size: 18))
               .fontWeight(.bold)
               .multilineTextAlignment(.leading)
             line
           }
-          UniverseFilterSelector(data: universes)
-          FightersScrollView(data: fighters)
+          UniverseFilterSelector(callBack: { name in 
+            viewModel.filterByUniverse(name: name)
+          }, names: viewModel.getUniverseNames())
+          FightersScrollView(data: viewModel.fighters)
+        case .loading:
+          ProgressView()
         default:
           EmptyView()
         }
@@ -59,7 +48,7 @@ struct AllGamesView: View {
       .padding(.leading, 14)
       .padding(.trailing, 14)
     }.task {
-      await viewModel.fetchData()
+      viewModel.getData()
     }
   }
   

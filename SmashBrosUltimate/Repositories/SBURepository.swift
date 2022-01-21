@@ -12,7 +12,7 @@ protocol SBURepositoryProtocol {
   func fetchUniverses() async throws -> [SBUUniverseModel]
   func fetchFighters(filter: String?) async throws -> [SBUFighterModel]
   func getUniverses() -> [SBUUniverseModel]
-  func getFigthers(filter: String?) -> [SBUFighterModel]
+  func getFigthers() -> [SBUFighterModel]
   func saveUniverses(data: [SBUUniverseModel])
   func saveFighters(data: [SBUFighterModel])
   func clearUniverses()
@@ -43,18 +43,20 @@ extension SBURepository: SBURepositoryProtocol {
   }
   
   func saveFighters(data: [SBUFighterModel]) {
-    for value in data {
-      try? realm.write {
-        realm.add(value)
-      }
+    let objects = List<SBUFighterModel>()
+    objects.append(objectsIn: data)
+    
+    try? realm.write {
+      realm.add(objects)
     }
   }
   
   func saveUniverses(data: [SBUUniverseModel]) {
-    for value in data {
-      try? realm.write {
-        realm.add(value)
-      }
+    let objects = List<SBUUniverseModel>()
+    objects.append(objectsIn: data)
+    
+    try? realm.write {
+      realm.add(objects)
     }
   }
   
@@ -63,11 +65,7 @@ extension SBURepository: SBURepositoryProtocol {
     return Array(data)
   }
   
-  func getFigthers(filter: String?) -> [SBUFighterModel] {
-    if let filter = filter {
-      // TODO: Filter cache
-    }
-    
+  func getFigthers() -> [SBUFighterModel] {
     let data = realm.objects(SBUFighterModel.self).map({$0})
     return Array(data)
   }

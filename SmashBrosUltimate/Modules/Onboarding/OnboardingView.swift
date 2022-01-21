@@ -9,17 +9,20 @@ import SwiftUI
 import RealmSwift
 
 struct OnboardingView: View {
-  @State var index = 0
-  @State private var willMoveToNextScreen = false
+  @StateObject private var viewModel: OnboardingViewModel
   
   var images: [(imageName: String, text: String)] = [(imageName: "img_onb_one", text: "Access our Extented Catalog"), (imageName: "img_onb_two", text: "Filter Universes"), (imageName: "img_onb_three", text: "And More...")]
   let realm = try! Realm()
+  
+  init(realm: Realm) {
+    _viewModel = StateObject(wrappedValue: OnboardingViewModel(repository: SBURepository(provider: SBUApiProvider.shared(), realm: realm)))
+  }
   
   var body: some View {
     VStack {
       Spacer()
       VStack {
-        PagingView(index: $index.animation(.easeInOut), maxIndex: images.count - 1) {
+        PagingView(index: $viewModel.index.animation(.easeInOut), maxIndex: images.count - 1) {
           ForEach(self.images, id: \.self.imageName) { item in
             OnboardingWalkthrough(imageName: item.0, text: item.1)
           }
@@ -27,12 +30,12 @@ struct OnboardingView: View {
       }.frame(width: 350, height: 450)
       Spacer()
       Button( action: {
-        index += 1
-        if index > 2 {
-          willMoveToNextScreen = true
+        viewModel.index += 1
+        if viewModel.index > 2 {
+          viewModel.goToAllGamesScreen()
         }
       }) {
-        Text(index < 2 ? "Next" : "Get Started")
+        Text(viewModel.index < 2 ? "Next" : "Get Started")
           .font(.system(size: 20))
           .fontWeight(.semibold)
           .foregroundColor(.white)
@@ -40,7 +43,10 @@ struct OnboardingView: View {
       }
       .background(Color(hex:  0xDB3069))
       .cornerRadius(27)
+      
       Spacer()
+    }.task {
+      await viewModel.fetchData()
     }
     .frame(
       minWidth: 0,
@@ -52,6 +58,6 @@ struct OnboardingView: View {
     .background(
       LinearGradient(gradient: Gradient(colors: [Color(hex:  0xE55249), Color(hex: 0x2A52BE)]), startPoint: .topLeading, endPoint: .bottomTrailing)
     )
-    .navigate(to: AllGamesView(realm: realm), when: $willMoveToNextScreen)
+    .navigate(to: AllGamesView(realm: realm), when: $viewModel.willMoveToNextScreen)
   }
 }

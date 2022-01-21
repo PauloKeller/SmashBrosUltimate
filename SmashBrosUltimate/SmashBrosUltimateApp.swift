@@ -10,9 +10,15 @@ import RealmSwift
 
 @main
 struct SmashBrosUltimateApp: SwiftUI.App {
+  let realm = try! Realm()
+  
   var body: some Scene {
     WindowGroup {
-      OnboardingView()
+      if SharedPreferencesManager.shared.getIsNotFirstTime() {
+        AllGamesView(realm: realm)
+      } else {
+        OnboardingView(realm: realm)
+      }
     }
   }
 }

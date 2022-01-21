@@ -11,31 +11,53 @@ import RealmSwift
 enum AllGamesViewModelState {
   case loading
   case na
-  case success(universes: [SBUUniverseModel], fighters: [SBUFighterModel])
-  case failed(error: Error)
+  case success
+  case failed
 }
 
 @MainActor
 class AllGamesViewModel: ObservableObject {
   private let repository: SBURepositoryProtocol
   
-  @Published var state: AllGamesViewModelState = .na
+  @Published var state: AllGamesViewModelState = .success
+  @Published var universes: [SBUUniverseModel] = []
+  @Published var fighters: [SBUFighterModel] = []
   
   init(repository: SBURepositoryProtocol) {
     self.repository = repository
   }
 
-  public func fetchData() async {
-    state = .loading
+  public func getData() {
+    universes = repository.getUniverses()
+    fighters = repository.getFigthers()
+  }
+  
+  public func pullToRefresh() {
+   //TODO: Implement
+  }
+  
+  public func filterByUniverse(name: String) {
+    let fighters = repository.getFigthers()
     
-    do {
-      let universes = try await repository.fetchUniverses()
-      let fighters = try await repository.fetchFighters(filter: nil)
-      print(fighters)
-      state = .success(universes: universes, fighters: fighters)
-    } catch {
-      state = .failed(error: error)
+    if name == "All" {
+      self.fighters = fighters
+    } else {
+      let filtered = fighters.filter({ $0.universe == name })
+      self.fighters = filtered
     }
+  }
+  
+  public func getUniverseNames() -> [String] {
+    var names = [String]()
+    names.insert("All", at: 0)
+    
+    for universe in universes {
+      if let name = universe.name {
+        names.append(name)
+      }
+    }
+    
+    return names
   }
 }
 

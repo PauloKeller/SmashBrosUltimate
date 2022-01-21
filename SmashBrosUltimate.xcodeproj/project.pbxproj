@@ -10,6 +10,8 @@
 		3AE57915AE47C5FEEE9826C8 /* Pods_SmashBrosUltimate_SmashBrosUltimateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259CEFE72ED557EB419AB784 /* Pods_SmashBrosUltimate_SmashBrosUltimateUITests.framework */; };
 		B81C05A12798CF450029B9F5 /* AllGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C05A02798CF450029B9F5 /* AllGamesViewModel.swift */; };
 		B81C05A62799FC3D0029B9F5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C05A52799FC3D0029B9F5 /* OnboardingView.swift */; };
+		B8272D3F279B5610005DE740 /* FighterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8272D3E279B5610005DE740 /* FighterDetailsView.swift */; };
+		B8272D42279B67C0005DE740 /* UniverseFilterSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8272D41279B67C0005DE740 /* UniverseFilterSelector.swift */; };
 		B829F1322796377600BA28F6 /* SmashBrosUltimateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F1312796377600BA28F6 /* SmashBrosUltimateApp.swift */; };
 		B829F1342796377600BA28F6 /* AllGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F1332796377600BA28F6 /* AllGamesView.swift */; };
 		B829F1362796377900BA28F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B829F1352796377900BA28F6 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 		B829F15D279638C500BA28F6 /* SBUBaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F15C279638C500BA28F6 /* SBUBaseProvider.swift */; };
 		B829F16027963B2000BA28F6 /* SBUUniverseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F15F27963B2000BA28F6 /* SBUUniverseModel.swift */; };
 		B829F163279640AD00BA28F6 /* SBUApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F162279640AD00BA28F6 /* SBUApiProvider.swift */; };
+		B8671A1A279B305A003B203E /* SharedPreferencesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8671A19279B305A003B203E /* SharedPreferencesManager.swift */; };
+		B8671A1C279B4D0A003B203E /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8671A1B279B4D0A003B203E /* OnboardingViewModel.swift */; };
 		B8BA75A727976BEC000DC2CD /* SBUFighterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BA75A627976BEC000DC2CD /* SBUFighterModel.swift */; };
 		B8BA75AA2797710C000DC2CD /* SBURepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BA75A92797710C000DC2CD /* SBURepository.swift */; };
 		B8DBB3CB279A349F006E721C /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB3CA279A349F006E721C /* PageView.swift */; };
@@ -60,6 +64,8 @@
 		AA92906E9B8AE6086FFE59AB /* Pods_SmashBrosUltimate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmashBrosUltimate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B81C05A02798CF450029B9F5 /* AllGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGamesViewModel.swift; sourceTree = "<group>"; };
 		B81C05A52799FC3D0029B9F5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		B8272D3E279B5610005DE740 /* FighterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FighterDetailsView.swift; sourceTree = "<group>"; };
+		B8272D41279B67C0005DE740 /* UniverseFilterSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverseFilterSelector.swift; sourceTree = "<group>"; };
 		B829F12E2796377600BA28F6 /* SmashBrosUltimate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashBrosUltimate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B829F1312796377600BA28F6 /* SmashBrosUltimateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashBrosUltimateApp.swift; sourceTree = "<group>"; };
 		B829F1332796377600BA28F6 /* AllGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGamesView.swift; sourceTree = "<group>"; };
@@ -73,6 +79,8 @@
 		B829F15C279638C500BA28F6 /* SBUBaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBUBaseProvider.swift; sourceTree = "<group>"; };
 		B829F15F27963B2000BA28F6 /* SBUUniverseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBUUniverseModel.swift; sourceTree = "<group>"; };
 		B829F162279640AD00BA28F6 /* SBUApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBUApiProvider.swift; sourceTree = "<group>"; };
+		B8671A19279B305A003B203E /* SharedPreferencesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedPreferencesManager.swift; sourceTree = "<group>"; };
+		B8671A1B279B4D0A003B203E /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		B8BA75A627976BEC000DC2CD /* SBUFighterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBUFighterModel.swift; sourceTree = "<group>"; };
 		B8BA75A92797710C000DC2CD /* SBURepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBURepository.swift; sourceTree = "<group>"; };
 		B8DBB3CA279A349F006E721C /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
@@ -115,6 +123,7 @@
 		B81C059D2798CEE10029B9F5 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B8272D3D279B55F4005DE740 /* FighterDetails */,
 				B81C05A42799FC2E0029B9F5 /* Onboarding */,
 				B81C059F2798CEFF0029B9F5 /* AllGames */,
 			);
@@ -134,8 +143,25 @@
 			isa = PBXGroup;
 			children = (
 				B81C05A52799FC3D0029B9F5 /* OnboardingView.swift */,
+				B8671A1B279B4D0A003B203E /* OnboardingViewModel.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B8272D3D279B55F4005DE740 /* FighterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				B8272D3E279B5610005DE740 /* FighterDetailsView.swift */,
+			);
+			path = FighterDetails;
+			sourceTree = "<group>";
+		};
+		B8272D40279B67A6005DE740 /* UniverseFilterSelector */ = {
+			isa = PBXGroup;
+			children = (
+				B8272D41279B67C0005DE740 /* UniverseFilterSelector.swift */,
+			);
+			path = UniverseFilterSelector;
 			sourceTree = "<group>";
 		};
 		B829F1252796377600BA28F6 = {
@@ -163,6 +189,7 @@
 		B829F1302796377600BA28F6 /* SmashBrosUltimate */ = {
 			isa = PBXGroup;
 			children = (
+				B8671A18279B3048003B203E /* Managers */,
 				B8DBB3CC279A3936006E721C /* Extensions */,
 				B8DBB3C8279A3473006E721C /* Components */,
 				B81C059D2798CEE10029B9F5 /* Modules */,
@@ -219,6 +246,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		B8671A18279B3048003B203E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B8671A19279B305A003B203E /* SharedPreferencesManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		B8BA75A8279770E8000DC2CD /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +265,7 @@
 		B8DBB3C8279A3473006E721C /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				B8272D40279B67A6005DE740 /* UniverseFilterSelector */,
 				B8DBB3D8279A4529006E721C /* FighterScrollView */,
 				B8DBB3D5279A44FA006E721C /* FighterCard */,
 				B8DBB3D1279A44B3006E721C /* OnboardingWalkthrough */,
@@ -549,10 +585,14 @@
 				B8DBB3D3279A44CF006E721C /* OnboardingWalkthrough.swift in Sources */,
 				B829F16027963B2000BA28F6 /* SBUUniverseModel.swift in Sources */,
 				B8DBB3CB279A349F006E721C /* PageView.swift in Sources */,
+				B8272D42279B67C0005DE740 /* UniverseFilterSelector.swift in Sources */,
+				B8671A1C279B4D0A003B203E /* OnboardingViewModel.swift in Sources */,
 				B829F15D279638C500BA28F6 /* SBUBaseProvider.swift in Sources */,
+				B8272D3F279B5610005DE740 /* FighterDetailsView.swift in Sources */,
 				B8DBB3D7279A450D006E721C /* FighterCard.swift in Sources */,
 				B8DBB3D0279A3C8B006E721C /* View.swift in Sources */,
 				B81C05A12798CF450029B9F5 /* AllGamesViewModel.swift in Sources */,
+				B8671A1A279B305A003B203E /* SharedPreferencesManager.swift in Sources */,
 				B829F1322796377600BA28F6 /* SmashBrosUltimateApp.swift in Sources */,
 				B829F163279640AD00BA28F6 /* SBUApiProvider.swift in Sources */,
 			);
