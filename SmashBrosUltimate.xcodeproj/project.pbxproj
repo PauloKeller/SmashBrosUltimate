@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3AE57915AE47C5FEEE9826C8 /* Pods_SmashBrosUltimate_SmashBrosUltimateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 259CEFE72ED557EB419AB784 /* Pods_SmashBrosUltimate_SmashBrosUltimateUITests.framework */; };
+		B81C05A12798CF450029B9F5 /* AllGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C05A02798CF450029B9F5 /* AllGamesViewModel.swift */; };
+		B81C05A62799FC3D0029B9F5 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C05A52799FC3D0029B9F5 /* OnboardingView.swift */; };
 		B829F1322796377600BA28F6 /* SmashBrosUltimateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F1312796377600BA28F6 /* SmashBrosUltimateApp.swift */; };
-		B829F1342796377600BA28F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F1332796377600BA28F6 /* ContentView.swift */; };
+		B829F1342796377600BA28F6 /* AllGamesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F1332796377600BA28F6 /* AllGamesView.swift */; };
 		B829F1362796377900BA28F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B829F1352796377900BA28F6 /* Assets.xcassets */; };
 		B829F1392796377900BA28F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B829F1382796377900BA28F6 /* Preview Assets.xcassets */; };
 		B829F1432796377900BA28F6 /* SmashBrosUltimateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F1422796377900BA28F6 /* SmashBrosUltimateTests.swift */; };
@@ -20,7 +22,12 @@
 		B829F163279640AD00BA28F6 /* SBUApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B829F162279640AD00BA28F6 /* SBUApiProvider.swift */; };
 		B8BA75A727976BEC000DC2CD /* SBUFighterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BA75A627976BEC000DC2CD /* SBUFighterModel.swift */; };
 		B8BA75AA2797710C000DC2CD /* SBURepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BA75A92797710C000DC2CD /* SBURepository.swift */; };
-		B8DDEE0F27977BAF008F249C /* SBUPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DDEE0E27977BAF008F249C /* SBUPersistence.swift */; };
+		B8DBB3CB279A349F006E721C /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB3CA279A349F006E721C /* PageView.swift */; };
+		B8DBB3CE279A3945006E721C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB3CD279A3945006E721C /* Colors.swift */; };
+		B8DBB3D0279A3C8B006E721C /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB3CF279A3C8B006E721C /* View.swift */; };
+		B8DBB3D3279A44CF006E721C /* OnboardingWalkthrough.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB3D2279A44CF006E721C /* OnboardingWalkthrough.swift */; };
+		B8DBB3D7279A450D006E721C /* FighterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB3D6279A450D006E721C /* FighterCard.swift */; };
+		B8DBB3DA279A453E006E721C /* FighterScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DBB3D9279A453E006E721C /* FighterScrollView.swift */; };
 		C1413F9DA27D08F5012A4C37 /* Pods_SmashBrosUltimateTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB3DACDBC1694DAABCE115D /* Pods_SmashBrosUltimateTests.framework */; };
 		E24FF232B300E0C43E33430E /* Pods_SmashBrosUltimate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA92906E9B8AE6086FFE59AB /* Pods_SmashBrosUltimate.framework */; };
 /* End PBXBuildFile section */
@@ -51,9 +58,11 @@
 		8A42246C2741704A0C08F6D8 /* Pods-SmashBrosUltimate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashBrosUltimate.debug.xcconfig"; path = "Target Support Files/Pods-SmashBrosUltimate/Pods-SmashBrosUltimate.debug.xcconfig"; sourceTree = "<group>"; };
 		A93385CA733881087C1E4CBF /* Pods-SmashBrosUltimate-SmashBrosUltimateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashBrosUltimate-SmashBrosUltimateUITests.debug.xcconfig"; path = "Target Support Files/Pods-SmashBrosUltimate-SmashBrosUltimateUITests/Pods-SmashBrosUltimate-SmashBrosUltimateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AA92906E9B8AE6086FFE59AB /* Pods_SmashBrosUltimate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmashBrosUltimate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B81C05A02798CF450029B9F5 /* AllGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGamesViewModel.swift; sourceTree = "<group>"; };
+		B81C05A52799FC3D0029B9F5 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		B829F12E2796377600BA28F6 /* SmashBrosUltimate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashBrosUltimate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B829F1312796377600BA28F6 /* SmashBrosUltimateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmashBrosUltimateApp.swift; sourceTree = "<group>"; };
-		B829F1332796377600BA28F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B829F1332796377600BA28F6 /* AllGamesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGamesView.swift; sourceTree = "<group>"; };
 		B829F1352796377900BA28F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B829F1382796377900BA28F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B829F13E2796377900BA28F6 /* SmashBrosUltimateTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmashBrosUltimateTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +75,12 @@
 		B829F162279640AD00BA28F6 /* SBUApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBUApiProvider.swift; sourceTree = "<group>"; };
 		B8BA75A627976BEC000DC2CD /* SBUFighterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBUFighterModel.swift; sourceTree = "<group>"; };
 		B8BA75A92797710C000DC2CD /* SBURepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBURepository.swift; sourceTree = "<group>"; };
-		B8DDEE0E27977BAF008F249C /* SBUPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBUPersistence.swift; sourceTree = "<group>"; };
+		B8DBB3CA279A349F006E721C /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		B8DBB3CD279A3945006E721C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		B8DBB3CF279A3C8B006E721C /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		B8DBB3D2279A44CF006E721C /* OnboardingWalkthrough.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingWalkthrough.swift; sourceTree = "<group>"; };
+		B8DBB3D6279A450D006E721C /* FighterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FighterCard.swift; sourceTree = "<group>"; };
+		B8DBB3D9279A453E006E721C /* FighterScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FighterScrollView.swift; sourceTree = "<group>"; };
 		B8FA85C4BB337DCB2E39A6B7 /* Pods-SmashBrosUltimate-SmashBrosUltimateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmashBrosUltimate-SmashBrosUltimateUITests.release.xcconfig"; path = "Target Support Files/Pods-SmashBrosUltimate-SmashBrosUltimateUITests/Pods-SmashBrosUltimate-SmashBrosUltimateUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +112,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B81C059D2798CEE10029B9F5 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				B81C05A42799FC2E0029B9F5 /* Onboarding */,
+				B81C059F2798CEFF0029B9F5 /* AllGames */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		B81C059F2798CEFF0029B9F5 /* AllGames */ = {
+			isa = PBXGroup;
+			children = (
+				B829F1332796377600BA28F6 /* AllGamesView.swift */,
+				B81C05A02798CF450029B9F5 /* AllGamesViewModel.swift */,
+			);
+			path = AllGames;
+			sourceTree = "<group>";
+		};
+		B81C05A42799FC2E0029B9F5 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B81C05A52799FC3D0029B9F5 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		B829F1252796377600BA28F6 = {
 			isa = PBXGroup;
 			children = (
@@ -123,11 +163,13 @@
 		B829F1302796377600BA28F6 /* SmashBrosUltimate */ = {
 			isa = PBXGroup;
 			children = (
+				B8DBB3CC279A3936006E721C /* Extensions */,
+				B8DBB3C8279A3473006E721C /* Components */,
+				B81C059D2798CEE10029B9F5 /* Modules */,
 				B8BA75A8279770E8000DC2CD /* Repositories */,
 				B829F15E27963ADC00BA28F6 /* Models */,
 				B829F15B279637EC00BA28F6 /* Providers */,
 				B829F1312796377600BA28F6 /* SmashBrosUltimateApp.swift */,
-				B829F1332796377600BA28F6 /* ContentView.swift */,
 				B829F1352796377900BA28F6 /* Assets.xcassets */,
 				B829F1372796377900BA28F6 /* Preview Content */,
 			);
@@ -181,9 +223,60 @@
 			isa = PBXGroup;
 			children = (
 				B8BA75A92797710C000DC2CD /* SBURepository.swift */,
-				B8DDEE0E27977BAF008F249C /* SBUPersistence.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		B8DBB3C8279A3473006E721C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBB3D8279A4529006E721C /* FighterScrollView */,
+				B8DBB3D5279A44FA006E721C /* FighterCard */,
+				B8DBB3D1279A44B3006E721C /* OnboardingWalkthrough */,
+				B8DBB3C9279A3490006E721C /* PageView */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		B8DBB3C9279A3490006E721C /* PageView */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBB3CA279A349F006E721C /* PageView.swift */,
+			);
+			path = PageView;
+			sourceTree = "<group>";
+		};
+		B8DBB3CC279A3936006E721C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBB3CD279A3945006E721C /* Colors.swift */,
+				B8DBB3CF279A3C8B006E721C /* View.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B8DBB3D1279A44B3006E721C /* OnboardingWalkthrough */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBB3D2279A44CF006E721C /* OnboardingWalkthrough.swift */,
+			);
+			path = OnboardingWalkthrough;
+			sourceTree = "<group>";
+		};
+		B8DBB3D5279A44FA006E721C /* FighterCard */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBB3D6279A450D006E721C /* FighterCard.swift */,
+			);
+			path = FighterCard;
+			sourceTree = "<group>";
+		};
+		B8DBB3D8279A4529006E721C /* FighterScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				B8DBB3D9279A453E006E721C /* FighterScrollView.swift */,
+			);
+			path = FighterScrollView;
 			sourceTree = "<group>";
 		};
 		C170C7A001E7F4C0CC52E4AA /* Frameworks */ = {
@@ -447,14 +540,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8DBB3DA279A453E006E721C /* FighterScrollView.swift in Sources */,
 				B8BA75A727976BEC000DC2CD /* SBUFighterModel.swift in Sources */,
-				B829F1342796377600BA28F6 /* ContentView.swift in Sources */,
+				B8DBB3CE279A3945006E721C /* Colors.swift in Sources */,
+				B829F1342796377600BA28F6 /* AllGamesView.swift in Sources */,
 				B8BA75AA2797710C000DC2CD /* SBURepository.swift in Sources */,
+				B81C05A62799FC3D0029B9F5 /* OnboardingView.swift in Sources */,
+				B8DBB3D3279A44CF006E721C /* OnboardingWalkthrough.swift in Sources */,
 				B829F16027963B2000BA28F6 /* SBUUniverseModel.swift in Sources */,
+				B8DBB3CB279A349F006E721C /* PageView.swift in Sources */,
 				B829F15D279638C500BA28F6 /* SBUBaseProvider.swift in Sources */,
+				B8DBB3D7279A450D006E721C /* FighterCard.swift in Sources */,
+				B8DBB3D0279A3C8B006E721C /* View.swift in Sources */,
+				B81C05A12798CF450029B9F5 /* AllGamesViewModel.swift in Sources */,
 				B829F1322796377600BA28F6 /* SmashBrosUltimateApp.swift in Sources */,
 				B829F163279640AD00BA28F6 /* SBUApiProvider.swift in Sources */,
-				B8DDEE0F27977BAF008F249C /* SBUPersistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

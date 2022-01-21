@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 @main
-struct SmashBrosUltimateApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+struct SmashBrosUltimateApp: SwiftUI.App {
+  var body: some Scene {
+    WindowGroup {
+      OnboardingView()
     }
+  }
 }

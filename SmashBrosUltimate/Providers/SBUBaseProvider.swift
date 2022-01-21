@@ -15,11 +15,11 @@ public enum SBUError: Error {
 }
 
 struct Results<Element: Decodable>: Decodable {
-    let items: [Element]
+  let items: [Element]
 }
 
 class SBUBaseProvider {
-  func request<T: Decodable>(_ dynamicType: T.Type, route: String) async throws -> Result<T, SBUError> {
+  func request<T: Decodable>(_ dynamicType: T.Type, route: String) async throws -> T {
     guard let url = URL(string: route) else { throw SBUError.failed }
     
     let (data, response) = try await URLSession.shared.data(from: url)
@@ -28,16 +28,10 @@ class SBUBaseProvider {
       throw SBUError.invalidStatusCode
     }
     
-    let result: Result<T, SBUError>
-    
-    do {
-      let decodedData = try JSONDecoder().decode(T.self, from: data)
-      
-      result = .success(decodedData)
-    } catch {
-      result = .failure(SBUError.failedToDecode)
+    guard let decodedData = try? JSONDecoder().decode(T.self, from: data) else {
+      throw SBUError.failedToDecode
     }
     
-    return result
+    return decodedData
   }
 }

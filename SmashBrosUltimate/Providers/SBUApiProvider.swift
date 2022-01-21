@@ -8,8 +8,8 @@
 import Foundation
 
 protocol SBUApiProviderProtocol {
-  func fetchUniverses() async -> Result<[SBUUniverseModel], SBUError>
-  func fetchFighters(filter: String?) async -> Result<[SBUFighterModel], SBUError>
+  func fetchUniverses() async throws -> [SBUUniverseModel]
+  func fetchFighters(filter: String?) async throws -> [SBUFighterModel]
 }
 
 class SBUApiProvider : SBUBaseProvider {
@@ -27,49 +27,27 @@ class SBUApiProvider : SBUBaseProvider {
 }
 
 extension SBUApiProvider: SBUApiProviderProtocol {
-  func fetchUniverses() async -> Result<[SBUUniverseModel], SBUError> {
+  func fetchUniverses() async throws -> [SBUUniverseModel] {
     let route = "\(baseURL)/universes"
     
-    let result: Result<[SBUUniverseModel], SBUError>
-    
     guard let response = try? await request([SBUUniverseModel].self, route: route) else {
-      result = .failure(.failed)
-      
-      return result
+      throw SBUError.failed
     }
-    
-    switch response {
-    case .success(let data):
-      result = .success(data)
-    case .failure(let error):
-      result = .failure(error)
-    }
-    
-    return result
+
+    return response
   }
   
-  func fetchFighters(filter: String?) async -> Result<[SBUFighterModel], SBUError> {
+  func fetchFighters(filter: String?) async throws -> [SBUFighterModel] {
     var route = "\(baseURL)/fighters"
     
     if let filter = filter {
       route = "\(baseURL)/fighters?universe=\(filter)"
     }
     
-    let result: Result<[SBUFighterModel], SBUError>
-    
     guard let response = try? await request([SBUFighterModel].self, route: route) else {
-      result = .failure(.failed)
-      
-      return result
+      throw SBUError.failed
     }
     
-    switch response {
-    case .success(let data):
-      result = .success(data)
-    case .failure(let error):
-      result = .failure(error)
-    }
-    
-    return result
+    return response
   }
 }

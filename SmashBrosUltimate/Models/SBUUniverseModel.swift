@@ -8,12 +8,14 @@
 import Foundation
 import RealmSwift
 
-class SBUUniverseModel: Object, Codable {
+class SBUUniverseModel: Object, ObjectKeyIdentifiable, Codable {
   @Persisted var objectID: String?
   @Persisted var name: String?
   @Persisted var universeDescription: String?
   
   enum CodingKeys: String, CodingKey {
+    case name
+    case objectID
     case universeDescription = "description"
   }
 }

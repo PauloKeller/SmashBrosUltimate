@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class SBUFighterModel: Object, Codable {
+class SBUFighterModel: Object, ObjectKeyIdentifiable, Codable {
   @Persisted var objectID: String?
   @Persisted var name: String?
   @Persisted var universe: String?
@@ -17,8 +17,17 @@ class SBUFighterModel: Object, Codable {
   @Persisted var rate: Int?
   @Persisted var downloads: String?
   @Persisted var fighterDescription: String?
+  @Persisted var imageURL: String?
   
   enum CodingKeys: String, CodingKey {
+    case objectID
+    case name
+    case universe
+    case price
+    case popular
+    case rate
+    case downloads
     case fighterDescription = "description"
+    case imageURL
   }
 }

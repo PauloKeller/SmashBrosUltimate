@@ -9,59 +9,61 @@ import Foundation
 import RealmSwift
 
 protocol SBURepositoryProtocol {
-  func getUniverses() async -> Result<[SBUUniverseModel], SBUError>
-  func getFighters(filter: String?) async -> Result<[SBUFighterModel], SBUError>
+  func fetchUniverses() async throws -> [SBUUniverseModel]
+  func fetchFighters(filter: String?) async throws -> [SBUFighterModel]
+  func getUniverses() -> [SBUUniverseModel]
+  func getFigthers(filter: String?) -> [SBUFighterModel]
+  func saveUniverses(data: [SBUUniverseModel])
+  func saveFighters(data: [SBUFighterModel])
+  func clearUniverses()
+  func clearFighters()
 }
 
 class SBURepository {
   private let provider: SBUApiProviderProtocol
   private let realm: Realm
   
-  public convenience init() throws {
-    try self.init(realm: Realm())
-  }
-  
-  init(provider: SBUApiProviderProtocol = SBUApiProvider.shared(), realm: Realm) {
+  init(provider: SBUApiProviderProtocol, realm: Realm) {
     self.provider = provider
     self.realm = realm
   }
-  
-  private func fetchUniversesFromApi() async -> Result<[SBUUniverseModel], SBUError> {
-    let response = await provider.fetchUniverses()
-    let result: Result<[SBUUniverseModel], SBUError>
-    
-    switch response {
-    case .success(let data):
-      result = .success(data)
-      
-    case .failure(let error):
-      result = .failure(error)
+}
+
+extension SBURepository: SBURepositoryProtocol {
+  func clearFighters() {
+    try? realm.write {
+      realm.delete(realm.objects(SBUFighterModel.self))
     }
-    
-    return result
   }
   
-  private func fetchFightersFromApi(filter: String? = nil) async -> Result<[SBUFighterModel], SBUError> {
-    let response = await provider.fetchFighters(filter: filter)
-    let result: Result<[SBUFighterModel], SBUError>
-    
-    switch response {
-    case .success(let data):
-      result = .success(data)
-      
-    case .failure(let error):
-      result = .failure(error)
+  func clearUniverses() {
+    try? realm.write {
+      realm.delete(realm.objects(SBUUniverseModel.self))
     }
-    
-    return result
   }
   
-  private func fetchUniversesFromCache() -> [SBUUniverseModel] {
+  func saveFighters(data: [SBUFighterModel]) {
+    for value in data {
+      try? realm.write {
+        realm.add(value)
+      }
+    }
+  }
+  
+  func saveUniverses(data: [SBUUniverseModel]) {
+    for value in data {
+      try? realm.write {
+        realm.add(value)
+      }
+    }
+  }
+  
+  func getUniverses() -> [SBUUniverseModel] {
     let data = realm.objects(SBUUniverseModel.self).map({$0})
     return Array(data)
   }
   
-  private func fetchFightersFromCache(filter: String? = nil) -> [SBUFighterModel] {
+  func getFigthers(filter: String?) -> [SBUFighterModel] {
     if let filter = filter {
       // TODO: Filter cache
     }
@@ -69,26 +71,12 @@ class SBURepository {
     let data = realm.objects(SBUFighterModel.self).map({$0})
     return Array(data)
   }
-}
-
-extension SBURepository: SBURepositoryProtocol {
-  func getFighters(filter: String?) async -> Result<[SBUFighterModel], SBUError> {
-    let fromCache = false
-    
-    if fromCache {
-      let cache = fetchFightersFromCache()
-    } else {
-      return await fetchFightersFromApi(filter: filter)
-    }
+  
+  func fetchFighters(filter: String?) async throws -> [SBUFighterModel] {
+    return try await provider.fetchFighters(filter: filter)
   }
   
-  func getUniverses() async -> Result<[SBUUniverseModel], SBUError> {
-    let fromCache = false
-    
-    if fromCache {
-      let cache = fetchUniversesFromCache()
-    } else {
-      return await fetchUniversesFromApi()
-    }
+  func fetchUniverses() async throws -> [SBUUniverseModel] {
+    return try await provider.fetchUniverses()
   }
 }
