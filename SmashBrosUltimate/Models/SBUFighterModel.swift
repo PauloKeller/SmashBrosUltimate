@@ -14,7 +14,6 @@ class SBUFighterModel: Object, ObjectKeyIdentifiable, Codable {
   @Persisted var universe: String?
   @Persisted var price: String?
   @Persisted var popular: Bool?
-  @Persisted var rate: Int?
   @Persisted var downloads: String?
   @Persisted var fighterDescription: String?
   @Persisted var imageURL: String?
@@ -25,7 +24,6 @@ class SBUFighterModel: Object, ObjectKeyIdentifiable, Codable {
     case universe
     case price
     case popular
-    case rate
     case downloads
     case fighterDescription = "description"
     case imageURL
